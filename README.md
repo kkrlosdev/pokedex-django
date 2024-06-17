@@ -1,20 +1,32 @@
 # Pokédex Django
 
-- Hola, este mini-proyecto lo hice para poner en practica habilidades y recursos de diseño front-end y back-end, de momento no está terminado. Iré añadiendo funciones con base en las ideas que se me ocurran en el camino.
+Hola, este mini-proyecto lo hice para poner en practica habilidades y recursos de diseño front-end y back-end, de momento no está terminado. Iré añadiendo funciones con base en las ideas que se me ocurran en el camino.
+
+<div align="center">
+   <img src="https://github.com/kkrlosdev/pokedex-django/assets/141187341/93cac5c3-2b6d-446e-98ce-502798f41363">
+</div>
+
 
 # Clonar repositorio
 
-- Te invito a clonar el repo en tu local y probarlo :).
+### Te invito a clonar el repo en tu local y probarlo :)
 
-``` bash
 - Clonar proyecto:
-``` git clone https://github.com/kkrlosdev/pokedex-django.git
+```bash
+git clone https://github.com/kkrlosdev/pokedex-django.git
+```
 
 - Instalar dependencias:
-``` npm install
+```bash
+npm install
+```
 
 - Ejecuta el script build para generar las clases de Tailwind
-``` npm run build:css
+```bash
+npm run build:css
+```
 
 - Levanta el servidor y prueba
-``` python manage.py runserver
+```bash
+python manage.py runserver
+```
