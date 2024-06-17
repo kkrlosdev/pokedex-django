@@ -16,11 +16,17 @@ def IndexView(request):
 
             list_data = json.loads(source)
 
+            converted_height = (float(list_data['height'])*0.1)
+            rounded_height = round(converted_height, 2)
+
+            converted_weight = (float(list_data['weight'])*0.1)
+            rounded_weight = round(converted_weight, 2)
+
             data = {
                 'number': str(list_data['id']),
                 'name': str(list_data['name']).capitalize(),
-                'height': str(list_data['height']),
-                'weight': str(list_data['weight']),
+                'height': str(rounded_height) + ' m',
+                'weight': str(rounded_weight) + ' kg',
                 'sprite': str(list_data['sprites']['front_default']),
                 'type': str(list_data['types'][0]['type']['name']).capitalize()
             }
