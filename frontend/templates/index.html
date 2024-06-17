@@ -1,0 +1,57 @@
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex | kkrlosdev</title>
+    <link rel="shortcut icon" href="{% static 'favicon.svg' %}" type="image/x-icon">
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+</head>
+<body class="">
+    <div class="absolute inset-0 -z-10 h-screen w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+        <main class="container flex flex-col items-center justify-center">
+        <h1 class="my-4 text-3xl font-semibold text-center text-white text-opacity-90">¡Busca tus <span class="text-[#63e]">pokémones</span> favoritos y sus estadísticas!</h1>
+
+        {% if messages %}
+
+            {% for message in messages %}
+                <p class="p-2 text-white border border-red-700 rounded bg-red-500/80">{{ message }}</p>
+            {% endfor %}
+
+        {% endif %}
+
+        <section class="flex items-center justify-center mt-5">
+            <form method="post" class="flex">
+                {% csrf_token %}
+                <input type="text" name="pokemon" class="px-4 py-2 rounded-l-md focus:outline-none" placeholder="Busca tu pokémon favorito :)">
+                <button type="submit" class="flex items-center px-4 py-2 text-white transition-colors border-none bg-[#4827a3] rounded-r-md gap-x-2 hover:text-cyan-100">
+                    Buscar
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            </form>
+        </section>
+
+        {% if number and name %}
+        <div class="w-full max-w-sm mt-10 bg-[#63e] border-gray-500 rounded-lg shadow">
+            <div class="flex flex-col items-center pb-10">
+                <img class="w-24 h-24 mb-3 bg-[#4827a3] mt-5 rounded-full shadow-xl" src="{{sprite}}" alt="{{name}} imagen"/>
+                <h5 class="mb-1 text-xl font-medium text-white">{{name}}</h5>
+                <span class="text-sm text-gray-400">{{type}}</span>
+                <div class="flex mt-4 md:mt-6">
+                    <p class="px-4 py-2 text-sm font-medium text-white bg-[#4827a3] border-gray-400 rounded-lg ms-2 focus:outline-none focus:z-10 focus:ring-4 hover:bg-[#391e83]">Altura: {{height}}</p>
+                    <p class="px-4 py-2 text-sm font-medium text-white bg-[#4827a3] border-gray-400 rounded-lg ms-2 focus:outline-none focus:z-10 focus:ring-4 hover:bg-[#391e83]">Peso: {{weight}}</p>
+                </div>
+            </div>
+        {% endif %}
+        </div>
+
+    </main>
+</body>
+</html>
