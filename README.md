@@ -21,6 +21,11 @@ git clone https://github.com/kkrlosdev/pokedex-django.git
 npm install
 ```
 
+- Instalar dependencias de Python
+```bash
+pip install -r requirements.txt
+```
+
 - Ejecuta el script build para generar las clases de Tailwind
 ```bash
 npm run build:css
